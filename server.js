@@ -31,7 +31,7 @@ function listening(){
 
 
 //Get Request
-app.get('/', function(req, res){
+app.get('/all', function(req, res){
     res.send(projectData);
     console.log('Get project data');
 })
