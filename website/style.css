@@ -17,6 +17,7 @@ body{
 }
 
 .holder{
+    background:white;
 
 }
 
@@ -24,26 +25,26 @@ body{
     background: rgba(59, 74, 107, .4);
 }
 
-#entryHolder{
+#entryHolder{color:blue;
 
 }
 
-#date{
+#date{color:black;
 
 }
 
-#temp{
+#temp{color: black;
 
 }
 
-#content{
+#content{color:black;
 
 }
 
-.headline {
+.headline {color:black;
 
 }
-.title{
+.title{color:black;
 
 }
 
