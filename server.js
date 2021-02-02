@@ -45,7 +45,7 @@ function addData(req, res){
        date: data.date,
        temperature: data.temperature,
        weather: data.weather,
-       userReponse: data.userResponse
+       userResponse: data.userResponse
    }
    Object.assign(projectData, newEntry);
    res.send(projectData);
