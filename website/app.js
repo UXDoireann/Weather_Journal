@@ -50,6 +50,9 @@ function doThisThing(e){
         postData('/addData', {date: newDate, temperature:data.main.temp, weather:data.weather[0].description, userResponse:feelings});
         
     })
+    .then(
+        updateUI()
+    )
 }
 
 const getZip = async (baseURL, zip, apiKey)=> {
@@ -61,5 +64,19 @@ const getZip = async (baseURL, zip, apiKey)=> {
         return newData;
     } catch (error) {
         console.log("error", error);
+    }
+};
+
+//Update UI
+const updateUI = async()=>{
+    const request = await fetch ('/all');
+     try{
+        const allData = await request.json();
+        document.getElementById('date').innerHTML=allData.date;
+        document.getElementById('temp').innerHTML=allData.temperature;
+        document.getElementById('weather').innerHTML=allData.weather;
+        document.getElementById('content').innerHTML=allData.userResponse;
+    }catch(error){
+        console.log("UI could not be updated", error);
     }
 };
