@@ -2,6 +2,8 @@
 let baseURL='http://api.openweathermap.org/data/2.5/weather?zip=';
 let apiKey=',us&appid=acf9f0f643bd5a1d014e384ed33d87cc&units=metric';
 
+const reply =document.getElementById('entryHolder');
+
 
 
 
@@ -52,6 +54,8 @@ function doThisThing(e){
     })
     .then(
         updateUI()
+    ).then(
+        scroll()
     )
 }
 
@@ -67,16 +71,39 @@ const getZip = async (baseURL, zip, apiKey)=> {
     }
 };
 
+
+
+
+
+
+
 //Update UI
 const updateUI = async()=>{
     const request = await fetch ('/all');
      try{
         const allData = await request.json();
         document.getElementById('date').innerHTML=allData.date;
-        document.getElementById('temp').innerHTML=allData.temperature;
-        document.getElementById('weather').innerHTML=allData.weather;
-        document.getElementById('content').innerHTML=allData.userResponse;
+        document.getElementById('temp').innerHTML="It's me, Cathy. I've come home. It's "+ allData.temperature +"C, let me in your window!";
+        document.getElementById('content').innerHTML="I know your heart is "+allData.userResponse+", my love";
+        document.getElementById('weather').innerHTML="Remember everything is fleeting just like the "+allData.weather+" of today.";
+        
+       
+
     }catch(error){
         console.log("UI could not be updated", error);
-    }
+    
+}  
 };
+
+//scroll into view
+const scroll = async()=>{
+   const request = await fetch('/all');
+   try{
+       const allData= await request.json();
+    reply.scrollIntoView({
+        behavior:"smooth",
+        block:"end"
+    });}catch(error){
+        console.log("no scrolling", error);
+    }
+}
