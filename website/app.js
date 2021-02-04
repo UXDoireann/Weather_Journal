@@ -1,6 +1,6 @@
 /* Global Variables */
 let baseURL='http://api.openweathermap.org/data/2.5/weather?zip=';
-let apiKey=',us&appid=acf9f0f643bd5a1d014e384ed33d87cc&units=metric';
+const apiKey=',us&appid=acf9f0f643bd5a1d014e384ed33d87cc&units=metric';
 
 const reply =document.getElementById('entryHolder');
 
@@ -39,6 +39,21 @@ const postData = async(url = '', data = {}) =>{
 
 //Event listener
 document.getElementById('generate').addEventListener('click', doThisThing);
+document.getElementById('generate').addEventListener('click', validate);
+
+//Zip validation
+
+function validate(){
+    let zipEntry = document.getElementById('zip').value;
+
+    if(zipEntry == null || zipEntry == ""){
+        alert("Please enter your zip code for the weather!");
+        return false;
+    }else if(zipEntry.length < 5 || zipEntry.length >5){
+        alert("US zip codes only I'm afraid. No Yorkshire moors today!");
+        return false;
+    }
+}
 
 
 //
@@ -90,7 +105,7 @@ const updateUI = async()=>{
      try{
         const allData = await request.json();
         document.getElementById('date').innerHTML=allData.date;
-        document.getElementById('temp').innerHTML="It's me, Cathy. I've come home. It's "+ allData.temperature +"C, let me in your window!";
+        document.getElementById('temp').innerHTML="It's me, Cathy. I've come home. It's "+ allData.temperature +"°C, let me in your window!";
         document.getElementById('content').innerHTML="I know your heart is "+allData.userResponse+", my love";
         document.getElementById('weather').innerHTML="Remember everything is fleeting just like the "+allData.weather+" of today.";
         

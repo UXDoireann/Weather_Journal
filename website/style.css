@@ -82,6 +82,10 @@ input{
     border: 1px solid;
 }
 
+input:invalid{
+    border: 1px solid red;
+}
+
 #feelings{
     font-size:3vh;
 }
@@ -180,6 +184,13 @@ button:focus {
         font-family: 'Tangerine', cursive;
         border: 1px solid;
     }
+
+    input:invalid{
+        border: 2px solid red;
+    }
+
+    
+    
 
     button{
         width: 40vw;
