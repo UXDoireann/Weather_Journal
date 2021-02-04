@@ -52,12 +52,19 @@ function doThisThing(e){
         postData('/addData', {date: newDate, temperature:data.main.temp, weather:data.weather[0].description, userResponse:feelings});
         
     })
-    .then(
-        updateUI()
-    ).then(
-        scroll()
-    )
+
+.then(function() {
+  updateUI()
+})
+
+.then(function(){
+    scroll()
+})
+.then(function(){
+    kate()
+})
 }
+
 
 const getZip = async (baseURL, zip, apiKey)=> {
     const res = await fetch(baseURL + zip + apiKey);
@@ -105,5 +112,16 @@ const scroll = async()=>{
         block:"end"
     });}catch(error){
         console.log("no scrolling", error);
+    }
+}
+
+//Kate Bush
+const kate =async()=>{
+    const request = await fetch('/all');
+    try{
+        const allData = await request.json();
+        reply.style.backgroundImage="url('/Images/Kate.jpg')";
+    }catch(error){
+        console.log("No Kate", error);
     }
 }

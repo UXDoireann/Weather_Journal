@@ -2,16 +2,22 @@
 
 
 body{
-    background: #ffffff;;
+  
     font-family: 'Tangerine', cursive;
+    background-image: url("/Images/Background.jpg");
+    background-size:cover;
 }
 
-@media(max-width: 600px){
+#entryHolder{
+    background-color:#ffffff;
+
+}
+
+@media(max-width: 599px){
 #app{
     display: grid;
     grid-template-rows:(5vh, auto);
     height:100vh;
-    background: #ffffff;
     justify-content: center;
     grid-gap: 1em;
     font-family: 'Tangerine', cursive;
@@ -19,15 +25,14 @@ body{
 }
 
 #holder_headline{
-    background:white;
+   
     font-size: 10vh;
-    color:#380e25
+    color:#380e25;
+    border-bottom:1px solid #380e25;
 
 }
 
-.entry{
-    background: rgba(171, 177, 176, 0.4);
-}
+
 
 #entryHolder{color:rgba(59, 13, 13, 0.4);
 
@@ -72,9 +77,13 @@ input{
     width: 40vw;
     background:#dadcdd;
     color:#282729;
-    font-size: 5vw;
+    font-size: 3vh;
     font-family: 'Tangerine', cursive;
     border: 1px solid;
+}
+
+#feelings{
+    font-size:3vh;
 }
 
 button{
@@ -95,9 +104,12 @@ button{
 textarea{
     background:#dadcdd;
     color: #282729;
-    font-size: 5vw;
+    font-size: 3vh;
     font-family: 'Tangerine', cursive;
+    padding-top:1vh;
 }
+
+
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
@@ -109,20 +121,111 @@ button:focus {
 ::placeholder { /* Firefox, Chrome, Opera */ 
     color: #383536; 
     font-family: 'Tangerine', cursive;
-    font-size: 2vh;
+    font-size: 4vh;
 
 } 
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
     color: #383536; 
     font-family: 'Tangerine', cursive;
-    font-size:2vh;
+    font-size:4vh;
 
 } 
   
 ::-ms-input-placeholder { /* Microsoft Edge */ 
     color:#383536; 
     font-family: 'Tangerine', cursive;
-    font-size: 2vh;
+    font-size: 4vh;
 
-} };
+} 
+}
+
+
+@media(min-width:600px){
+    #app{
+       
+        display: grid;
+        grid-template-rows:(90vw);
+        height:100vh;
+     
+        justify-content: center;
+        grid-gap: 1em;
+        font-family: 'Tangerine', cursive;
+        color:#411114
+    }
+    
+    #holder_headline{
+       
+        font-size: 10vh;
+        color:#380e25;
+        border-bottom:1px solid #380e25;
+        margin-bottom:5vh;
+    
+    }
+
+    label{
+        display:block;
+        font-size: 4vw;
+        margin-bottom:2vh;
+        margin-top:2vh;
+    }
+    
+    input{
+        display:block;
+        height: 10vh;
+        width: 40vw;
+        background:#dadcdd;
+        color:#3e304d;
+        font-size: 7vh;
+        font-family: 'Tangerine', cursive;
+        border: 1px solid;
+    }
+
+    button{
+        width: 40vw;
+        height: 10vh;
+        background:#b9425c;
+        color:  #ffffff;
+        font-size: 6vh;
+        font-family: 'Tangerine', cursive;
+        border: none;
+        box-shadow: 2px 4px 5px #444;
+        margin-top:1vh;
+        border-radius: 8px;
+    }
+    
+textarea{
+    background:#dadcdd;
+    height:10vh;
+    color: #282729;
+    font-size: 7vh;
+    width:40vw;
+    font-family: 'Tangerine', cursive;
+    padding-top:1vh;
+    border: 1px solid;
+   
+}
+
+#entryHolder{color:rgba(59, 13, 13, 0.4);
+
+}
+
+#date{color:#380e25;
+    font-size:7vw;
+
+}
+
+#temp{color: #380e25;
+    font-size:7vw;
+
+}
+
+#content{color:#380e25;
+    font-size: 7vw;
+
+}
+
+#weather{color:#380e25;
+    font-size: 7vw;
+}
+};
